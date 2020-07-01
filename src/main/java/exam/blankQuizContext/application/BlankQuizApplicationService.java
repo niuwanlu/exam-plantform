@@ -6,6 +6,8 @@ import exam.blankQuizContext.domain.model.blankQuiz.BlankQuizRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BlankQuizApplicationService {
     private BlankQuizRepository blankQuizRepository;
@@ -24,4 +26,17 @@ public class BlankQuizApplicationService {
         return blankQuizId;
     }
 
+    public List<BlankQuiz> getAllBlankQuizzes() {
+        return blankQuizRepository.getAll();
+    }
+
+    public BlankQuiz getBlankQuiz(String blankQuizId) {
+        return blankQuizRepository.find(new BlankQuizId(blankQuizId));
+    }
+
+    public void reviseBlankQuiz(String blankQuizId, CreateBlankQuizCommand command) {
+        BlankQuiz blankQuiz = blankQuizRepository.find(new BlankQuizId(blankQuizId));
+        blankQuiz.revise(command.getTeacherId(), command.getContent(),
+                command.getReferenceAnswer(), command.getScore());
+    }
 }

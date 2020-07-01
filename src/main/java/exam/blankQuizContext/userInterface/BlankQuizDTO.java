@@ -10,6 +10,6 @@ public class BlankQuizDTO {
     private String uri;
 
     public static BlankQuizDTO from(BlankQuizId blankQuizId) {
-        return new BlankQuizDTO("blankquizs/" + blankQuizId);
+        return new BlankQuizDTO("blankquizzes/" + blankQuizId);
     }
 }
