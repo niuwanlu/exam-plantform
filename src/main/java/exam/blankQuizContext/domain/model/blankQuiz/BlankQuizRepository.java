@@ -8,4 +8,6 @@ public interface BlankQuizRepository {
     List<BlankQuiz> getAll();
 
     BlankQuiz find(BlankQuizId blankQuizId);
+
+    void delete(BlankQuizId blankQuizId);
 }

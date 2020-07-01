@@ -44,4 +44,8 @@ public class BlankQuizController {
         blankQuizApplicationService.reviseBlankQuiz(blankquizId, command);
     }
 
+    @DeleteMapping("/blankquizzes/{blankquizId}")
+    void delete(@PathVariable String blankquizId) {
+        blankQuizApplicationService.deleteBlankQuiz(blankquizId);
+    }
 }

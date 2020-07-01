@@ -31,4 +31,10 @@ public class MemoryBlankQuizRepository implements BlankQuizRepository {
                 .findFirst()
                 .orElseThrow(NullPointerException::new);
     }
+
+    @Override
+    public void delete(BlankQuizId blankQuizId) {
+        BlankQuiz blankQuiz = find(blankQuizId);
+        blankquizzes.remove(blankQuiz);
+    }
 }

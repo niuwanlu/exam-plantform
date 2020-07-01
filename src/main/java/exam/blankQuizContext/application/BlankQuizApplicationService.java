@@ -39,4 +39,8 @@ public class BlankQuizApplicationService {
         blankQuiz.revise(command.getTeacherId(), command.getContent(),
                 command.getReferenceAnswer(), command.getScore());
     }
+
+    public void deleteBlankQuiz(String blankquizId) {
+        blankQuizRepository.delete(new BlankQuizId(blankquizId));
+    }
 }
