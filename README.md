@@ -12,7 +12,7 @@
 
 ### 说明
 
-目前仅有 paper 部分
+目前有 paper, blank quiz 部分
 
 
 
@@ -23,3 +23,8 @@
 | 获取所有paper | GET    | /papers           |
 | 组卷          | POST   | /papers           |
 | 重新组卷      | PUT    | /papers/:paper_id |
+| 获取所有blank quiz | GET | /blankquizzes  |
+| 获取某个blank quiz | GET | /blankquizzes/:blankquiz_id |
+| 创建blank quiz    | POST | /blankquizzes  |
+| 修改blank quiz    | PUT  | /blankquizzes/:blankquiz_id |
+| 删除blank quiz    | DELETE | /blankquizzes/:blankquiz_id |
