@@ -20,7 +20,7 @@ public class BlankQuizApplicationService {
     public BlankQuizId createBlankQuiz(CreateBlankQuizCommand command) {
         BlankQuizId blankQuizId = BlankQuizId.nextId();
         BlankQuiz blankQuiz = BlankQuiz.create(blankQuizId, command.getTeacherId(), command.getContent(),
-                command.getReferenceAnswer(), command.getScore());
+                command.getReferenceAnswer());
 
         blankQuizRepository.save(blankQuiz);
         return blankQuizId;
@@ -37,7 +37,7 @@ public class BlankQuizApplicationService {
     public void reviseBlankQuiz(String blankQuizId, CreateBlankQuizCommand command) {
         BlankQuiz blankQuiz = blankQuizRepository.find(new BlankQuizId(blankQuizId));
         blankQuiz.revise(command.getTeacherId(), command.getContent(),
-                command.getReferenceAnswer(), command.getScore());
+                command.getReferenceAnswer());
     }
 
     public void deleteBlankQuiz(String blankquizId) {

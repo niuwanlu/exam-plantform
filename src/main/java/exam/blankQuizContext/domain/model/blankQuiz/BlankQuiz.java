@@ -11,29 +11,26 @@ public class BlankQuiz implements Entity<BlankQuiz> {
     private String teacherId;
     private String content;
     private String referenceAnswer;
-    private int score;
     private LocalDateTime createdTime;
     private LocalDateTime updatedTime;
 
-    public BlankQuiz(BlankQuizId blankQuizId, String teacherId, String content, String referenceAnswer, int score) {
+    public BlankQuiz(BlankQuizId blankQuizId, String teacherId, String content, String referenceAnswer) {
         this.blankQuizId = blankQuizId;
         this.teacherId = teacherId;
         this.content = content;
         this.referenceAnswer = referenceAnswer;
-        this.score = score;
         this.createdTime = LocalDateTime.now();
         this.updatedTime = LocalDateTime.now();
     }
 
-    public static BlankQuiz create(BlankQuizId blankQuizId, String teacherId, String content, String referenceAnswer, int score) {
-        return new BlankQuiz(blankQuizId, teacherId, content, referenceAnswer, score);
+    public static BlankQuiz create(BlankQuizId blankQuizId, String teacherId, String content, String referenceAnswer) {
+        return new BlankQuiz(blankQuizId, teacherId, content, referenceAnswer);
     }
 
-    public void revise(String teacherId, String content, String referenceAnswer, int score) {
+    public void revise(String teacherId, String content, String referenceAnswer) {
         this.teacherId = teacherId;
         this.content = content;
         this.referenceAnswer = referenceAnswer;
-        this.score = score;
     }
 
     @Override
@@ -55,9 +52,5 @@ public class BlankQuiz implements Entity<BlankQuiz> {
 
     public String getReferenceAnswer() {
         return referenceAnswer;
-    }
-
-    public int getScore() {
-        return score;
     }
 }
